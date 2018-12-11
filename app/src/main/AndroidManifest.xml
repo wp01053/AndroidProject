@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.study.android.androidproject">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.NFC" />
+
+    <!--
+     이게 mainfest 주석다는 법
+        manifest 에서 외부 jsp 사이트와 연결이 가능하도록 인터넷 사용을 허가한다.
+    -->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/appicon2"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.HomeScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:host="calc"
+                    android:scheme="bk" />
+
+
+            </intent-filter>
+
+
+        </activity>
+
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="@string/kakao_app_key" />
+
+        <activity
+            android:name=".Main2Activity"
+            android:theme="@style/AppTheme2"></activity>
+        <activity
+            android:name=".Main3Activity"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name=".Main4Activity"
+            android:fitsSystemWindows="true"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name=".NfcActivity"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name=".KakaoNaviActivity"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/AppTheme2"></activity>
+
+        <receiver android:name=".Alarm_Reciver" />
+
+        <service
+            android:name=".RingtonePlayingService"
+            android:enabled="true"></service>
+    </application>
+
+</manifest>
